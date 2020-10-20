@@ -26,34 +26,35 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let curInput = input.value;
         for (let c = 0; c < curInput.length; c++) {
             
-            console.log(curInput.length);
-            console.log(event.target.textContent === "+" ||
-            event.target.textContent === "-" || event.target.textContent === "*" || event.target.textContent === "/" ||
-            event.target.textContent === "%" || event.target.textContent === "√" || event.target.textContent === "^");
+            
+            
             if ((curInput[c] === "+" || curInput[c] === "-" || curInput[c] === "*" || curInput[c] === "/" ||
                 curInput[c] === "%" || curInput[c] === "√" || curInput[c] === "^") && (event.target.textContent === "+" ||
                     event.target.textContent === "-" || event.target.textContent === "*" || event.target.textContent === "/" ||
                     event.target.textContent === "%" || event.target.textContent === "√" || event.target.textContent === "^")) {
-                console.log(typeof(curInput));
+                
                 let arr = curInput.split("");
-                console.log(arr);
+                
                 arr.splice((arr.length-1), 1);
-                console.log(arr);
+                
                 arr.join('');
-                console.log(arr);
+                
                 input.value = arr;
             }
 
 
         }
 
-        for(b=0;b<curInput.length;b++) {
+        for(let b=0;b<curInput.length;b++) {
             if(curInput[b]==="=") {
                 input.value="";
             }
         }
+
+
         if(event.target.classList.contains('button') && !event.target.classList.contains('equal')) {
             let curInput = input.value;
+
             // if(curInput.length===0) {
             //     input.value += event.target.textContent;
             // }
@@ -61,6 +62,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
             // console.log(curInput.length);
 
         }
+
+        if((curInput.length === 0) && (event.target.textContent==="*" || event.target.textContent==="/" || event.target.textContent==="+" ||
+        event.target.textContent==="-" || event.target.textContent==="^" || event.target.textContent==="√")) {
+            
+            input.value="";
+       }
+
+
         if(event.target.classList.contains('clear')) {
             input.value="";
         }
@@ -83,7 +92,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         itemsArray.splice(0, 1);
                         localStorage.setItem('items',JSON.stringify(itemsArray));
                         data=JSON.parse(localStorage.getItem('items'));
-                        console.log(data);
+                        
                         log.innerHTML="";
                         for(let m=0; m<data.length; m++) {
                             
@@ -137,7 +146,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         itemsArray.splice(0, 1);
                         localStorage.setItem('items',JSON.stringify(itemsArray));
                         data=JSON.parse(localStorage.getItem('items'));
-                        console.log(data);
+                        
                         log.innerHTML="";
                         for(let m=0; m<data.length; m++) {
                             
@@ -191,7 +200,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                         itemsArray.splice(0, 1);
                         localStorage.setItem('items',JSON.stringify(itemsArray));
                         data=JSON.parse(localStorage.getItem('items'));
-                        console.log(data);
+                        
                         log.innerHTML="";
                         for(let m=0; m<data.length; m++) {
                             
@@ -232,7 +241,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 itemsArray.splice(0, 1);
                 localStorage.setItem('items',JSON.stringify(itemsArray));
                 data=JSON.parse(localStorage.getItem('items'));
-                console.log(data);
+                
                 log.innerHTML="";
                 for(let m=0; m<data.length; m++) {
                     
